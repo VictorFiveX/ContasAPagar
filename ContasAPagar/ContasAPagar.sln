@@ -4,12 +4,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.14.36408.4 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContasAPagar.Api", "ContasAPagar.Api\ContasAPagar.Api.csproj", "{1DE871AA-1494-46FE-91C1-D47BCA72FB0F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{02497F47-6247-4F5C-A074-D811EDCE943E} = {02497F47-6247-4F5C-A074-D811EDCE943E}
+		{457B77E3-3A99-4004-BEB2-65ABF0FDEE5E} = {457B77E3-3A99-4004-BEB2-65ABF0FDEE5E}
+		{D9CB1043-A291-4F86-80D3-D14B180C9C84} = {D9CB1043-A291-4F86-80D3-D14B180C9C84}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContasAPagar.Application.cs", "ContasAPagar.Application.cs\ContasAPagar.Application.cs.csproj", "{457B77E3-3A99-4004-BEB2-65ABF0FDEE5E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContasAPagar.Application", "ContasAPagar.Application.cs\ContasAPagar.Application.csproj", "{457B77E3-3A99-4004-BEB2-65ABF0FDEE5E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D9CB1043-A291-4F86-80D3-D14B180C9C84} = {D9CB1043-A291-4F86-80D3-D14B180C9C84}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContasAPagar.Domain", "ContasAPagar.Domain\ContasAPagar.Domain.csproj", "{D9CB1043-A291-4F86-80D3-D14B180C9C84}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContasAPagar.Infrastructure", "ContasAPagar.Infrastructure\ContasAPagar.Infrastructure.csproj", "{02497F47-6247-4F5C-A074-D811EDCE943E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{457B77E3-3A99-4004-BEB2-65ABF0FDEE5E} = {457B77E3-3A99-4004-BEB2-65ABF0FDEE5E}
+		{D9CB1043-A291-4F86-80D3-D14B180C9C84} = {D9CB1043-A291-4F86-80D3-D14B180C9C84}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
