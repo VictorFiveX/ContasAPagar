@@ -11,7 +11,7 @@ namespace ContasAPagar.Domain.Entities
     [Table("Contas")]
     public class ContaEntities
     {
-        public ContaEntities( string nome, decimal valorOriginal, DateTime dataVencimento, DateTime dataPagamento, decimal valorCorrigido, int diasAtraso)
+        public ContaEntities(string nome, decimal valorOriginal, DateTime dataVencimento, DateTime dataPagamento, decimal valorCorrigido, int diasAtraso)
         {
             Nome = nome;
             ValorOriginal = valorOriginal;

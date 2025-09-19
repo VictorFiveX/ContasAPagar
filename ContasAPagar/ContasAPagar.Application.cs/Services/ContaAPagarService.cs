@@ -1,4 +1,5 @@
-﻿using ContasAPagar.Application.Interfaces;
+﻿using ContasAPagar.Application.DTOs;
+using ContasAPagar.Application.Interfaces;
 using ContasAPagar.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace ContasAPagar.Application.Services
             _contaRepository = contaRepository;
         }
 
-        public async Task<ContaEntities> AdicionarContaAsync(ContaEntities conta)
+        public async Task<ContaEntities> CalcularContaAsync(ContaDTO conta)
         {
             int diasAtraso = (conta.DataPagamento - conta.DataVencimento).Days;
             if (diasAtraso < 0) diasAtraso = 0;
@@ -38,13 +39,18 @@ namespace ContasAPagar.Application.Services
                 multa = 0.05m;
                 jurosDia = 0.003m;
             }
-
             var valorCorrigido = conta.ValorOriginal + (conta.ValorOriginal * multa) + (conta.ValorOriginal * jurosDia * diasAtraso);
 
-            conta.DiasAtraso = diasAtraso;
-            conta.ValorCorrigido = valorCorrigido;
+            ContaEntities contaCalculada = new ContaEntities(
+                conta.Nome,
+                conta.ValorOriginal,
+                conta.DataVencimento,
+                conta.DataPagamento,
+                valorCorrigido,
+                diasAtraso
+            );
 
-            return await _contaRepository.AdicionarAsync(conta);
+            return await _contaRepository.AdicionarAsync(contaCalculada);
         }
 
         public async Task<List<ContaEntities>> ListarContasAsync()

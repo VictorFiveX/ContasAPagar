@@ -1,4 +1,5 @@
-﻿using ContasAPagar.Domain.Entities;
+﻿using ContasAPagar.Application.DTOs;
+using ContasAPagar.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace ContasAPagar.Application.Interfaces
 {
     public interface IContaAPagarService
     {
-        Task<ContaEntities> AdicionarContaAsync(ContaEntities conta);
+        Task<ContaEntities> CalcularContaAsync(ContaDTO conta);
         Task<List<ContaEntities>> ListarContasAsync();
     }
 }

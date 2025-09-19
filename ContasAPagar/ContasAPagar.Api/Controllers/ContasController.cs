@@ -1,4 +1,5 @@
-﻿using ContasAPagar.Application.Interfaces;
+﻿using ContasAPagar.Application.DTOs;
+using ContasAPagar.Application.Interfaces;
 using ContasAPagar.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,13 +14,13 @@ public class ContasController : Controller
     }
 
     [HttpPost("/conta/adicionar")]
-    public async Task<IActionResult> AddConta([FromBody] ContaEntities conta)
+    public async Task<IActionResult> AddConta([FromBody] ContaDTO conta)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
         try
         {
-            var result = await _service.AdicionarContaAsync(conta);
+            var result = await _service.CalcularContaAsync(conta);
             return CreatedAtAction(nameof(AddConta), result);
         }
         catch (DbUpdateException dbEx)
