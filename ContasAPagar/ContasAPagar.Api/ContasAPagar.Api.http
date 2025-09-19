@@ -1,0 +1,6 @@
+@ContasAPagar.Api_HostAddress = http://localhost:5006
+
+GET {{ContasAPagar.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
